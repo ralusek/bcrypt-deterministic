@@ -1,6 +1,6 @@
 {
   "name": "bcrypt-deterministic",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A deterministic bcrypt library for NodeJS.",
   "keywords": [
     "bcrypt",
