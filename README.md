@@ -1,4 +1,8 @@
-Core from primary NodeJS implementation: `https://github.com/kelektiv/node.bcrypt.js/`, credit for `bindigs/bcrypt_node.cc`
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ralusek/bcrypt-deterministic/blob/master/LICENSE)
+[![npm version](https://img.shields.io/npm/v/bcrypt-deterministic.svg?style=flat)](https://www.npmjs.com/package/bcrypt-deterministic)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/ralusek/bcrypt-deterministic/blob/master/LICENSE)
+
+Core from primary NodeJS implementation: `https://github.com/kelektiv/node.bcrypt.js/`, credit for `bindigs/bcrypt_node.cc`, as well as most of this README.md
 
 ## What is this?
 This is an implementation of the bcrypt algorithm, with the capability to provide a string salt (which will be turned to a 16 byte hash), and produce a deterministic/consistent/stable output hash. If none is provided, the default/initial bcrypt strategy of generating a random 16 byte hash is used.
