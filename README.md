@@ -2,7 +2,7 @@
 [![npm version](https://img.shields.io/npm/v/bcrypt-deterministic.svg?style=flat)](https://www.npmjs.com/package/bcrypt-deterministic)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/ralusek/bcrypt-deterministic/blob/master/LICENSE)
 
-Core from primary NodeJS implementation: `https://github.com/kelektiv/node.bcrypt.js/`, credit for `bindigs/bcrypt_node.cc`, as well as most of this README.md
+`bindigs/bcrypt_node.cc` (and most of this README) from: `https://github.com/kelektiv/node.bcrypt.js/`
 
 ## What is this?
 
