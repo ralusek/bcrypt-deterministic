@@ -8,14 +8,16 @@ import { bindings } from 'bindings';
 
 const MINOR = new Set(['a', 'b']);
 
-export default ({
-  salt,
-  rounds = 10,
-  minor = 'b',
-}: FormattedSaltSyncProps = {}): Promise<string> => {
-  if (salt && typeof salt !== 'string') return Promise.reject(new Error(`bcrypt.formattedSalt "salt" must be a string.`));
-  if (typeof rounds != 'number') return Promise.reject(new Error(`bcrypt.formattedSalt "rounds" must be a number. Provided value was "${rounds}"`));
-  if (!MINOR.has(minor)) return Promise.reject(new Error(`bcrypt.formattedSalt "minor" must be one of the following values ${Array.from(MINOR).join(', ')}, received "${minor}".`));
+export default ({ salt, rounds = 10, minor = 'b' }: FormattedSaltSyncProps = {}): string => {
+  if (salt && typeof salt !== 'string') throw new Error(`bcrypt.formattedSalt "salt" must be a string.`);
+  if (typeof rounds != 'number')
+    throw new Error(`bcrypt.formattedSalt "rounds" must be a number. Provided value was "${rounds}"`);
+  if (!MINOR.has(minor))
+    throw new Error(
+      `bcrypt.formattedSalt "minor" must be one of the following values ${Array.from(MINOR).join(
+        ', '
+      )}, received "${minor}".`
+    );
 
   let saltHash: Buffer;
 

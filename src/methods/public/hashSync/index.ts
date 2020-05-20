@@ -15,13 +15,9 @@ export default (
    * Input data string to be hashed.
    */
   data: string,
-  {
-    salt,
-    rounds,
-    minor,
-  }: HashProps = {}
-): Promise<string> => {
-  if (!data || !data.length) return Promise.reject(new Error(`bcrypt.hashSync "data" must be a string.`));
+  { salt, rounds, minor }: HashProps = {}
+): string => {
+  if (!data || typeof data !== 'string' || !data.length) throw new Error(`bcrypt.hashSync "data" must be a string.`);
 
   const saltHash = formattedSaltSync({ salt, rounds, minor });
 
