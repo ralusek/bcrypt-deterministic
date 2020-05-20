@@ -1,0 +1,73 @@
+{
+  "name": "bcrypt-deterministic",
+  "version": "0.0.1",
+  "description": "A deterministic bcrypt library for NodeJS.",
+  "keywords": [
+    "bcrypt",
+    "password",
+    "auth",
+    "authentication",
+    "encryption",
+    "crypt",
+    "crypto",
+    "deterministic",
+    "consistent",
+    "stable",
+    "repeatable",
+    "salt",
+    "pepper",
+    "hash",
+    "scrypt",
+    "hashed",
+    "hashing"
+  ],
+  "author": "Tomas Savigliano",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "build": "npx ttsc",
+    "start": "npm run build",
+    "test": "npm run build && mocha --timeout 0 -r ts-node/register tests/**/*.test.ts",
+    "prettify": "npx prettier --write '**/*.ts'",
+    "install": "node-pre-gyp install --fallback-to-build"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged && npm run build"
+    }
+  },
+  "dependencies": {
+    "node-pre-gyp": "0.14.0",
+    "node-addon-api": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.11",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "12.7.5",
+    "chai": "4.2.0",
+    "husky": "4.2.5",
+    "mocha": "7.1.2",
+    "prettier": "2.0.5",
+    "pretty-quick": "2.0.1",
+    "ts-node": "^8.10.1",
+    "tslint": "5.20.1",
+    "tslint-config-prettier": "1.18.0",
+    "tslint-plugin-prettier": "2.0.1",
+    "ttypescript": "^1.5.10",
+    "typescript": "3.9.2",
+    "typescript-transform-paths": "^1.1.14"
+  },
+  "binary": {
+    "module_name": "bcrypt_lib",
+    "module_path": "./lib/binding/napi-v{napi_build_version}",
+    "package_name": "{module_name}-v{version}-napi-v{napi_build_version}-{platform}-{arch}-{libc}.tar.gz",
+    "host": "https://github.com/ralusek/bcrypt-deterministic/releases/download/",
+    "remote_path": "v{version}",
+    "napi_versions": [
+      3
+    ]
+  }
+}
