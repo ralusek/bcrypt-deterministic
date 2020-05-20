@@ -119,40 +119,6 @@ node-pre-gyp ERR! Tried to download(404): https://github.com/kelektiv/node.bcryp
 
 make sure you have the appropriate dependencies installed and configured for your platform. You can find installation instructions for the dependencies for some common platforms [in this page][depsinstall].
 
-## API
-
-`BCrypt.`
-
-- `genSaltSync(rounds, minor)`
-  - `rounds` - [OPTIONAL] - the cost of processing the data. (default - 10)
-  - `minor` - [OPTIONAL] - minor version of bcrypt to use. (default - b)
-- `genSalt(rounds, minor, cb)`
-  - `rounds` - [OPTIONAL] - the cost of processing the data. (default - 10)
-  - `minor` - [OPTIONAL] - minor version of bcrypt to use. (default - b)
-  - `cb` - [OPTIONAL] - a callback to be fired once the salt has been generated. uses eio making it asynchronous. If `cb` is not specified, a `Promise` is returned if Promise support is available.
-    - `err` - First parameter to the callback detailing any errors.
-    - `salt` - Second parameter to the callback providing the generated salt.
-- `hashSync(data, salt)`
-  - `data` - [REQUIRED] - the data to be encrypted.
-  - `salt` - [REQUIRED] - the salt to be used to hash the password. if specified as a number then a salt will be generated with the specified number of rounds and used (see example under **Usage**).
-- `hash(data, salt, cb)`
-  - `data` - [REQUIRED] - the data to be encrypted.
-  - `salt` - [REQUIRED] - the salt to be used to hash the password. if specified as a number then a salt will be generated with the specified number of rounds and used (see example under **Usage**).
-  - `cb` - [OPTIONAL] - a callback to be fired once the data has been encrypted. uses eio making it asynchronous. If `cb` is not specified, a `Promise` is returned if Promise support is available.
-    - `err` - First parameter to the callback detailing any errors.
-    - `encrypted` - Second parameter to the callback providing the encrypted form.
-- `compareSync(data, encrypted)`
-  - `data` - [REQUIRED] - data to compare.
-  - `encrypted` - [REQUIRED] - data to be compared to.
-- `compare(data, encrypted, cb)`
-  - `data` - [REQUIRED] - data to compare.
-  - `encrypted` - [REQUIRED] - data to be compared to.
-  - `cb` - [OPTIONAL] - a callback to be fired once the data has been compared. uses eio making it asynchronous. If `cb` is not specified, a `Promise` is returned if Promise support is available.
-    - `err` - First parameter to the callback detailing any errors.
-    - `same` - Second parameter to the callback providing whether the data and encrypted forms match [true | false].
-- `getRounds(encrypted)` - return the number of rounds used to encrypt a given hash
-  - `encrypted` - [REQUIRED] - hash from which the number of rounds used should be extracted.
-
 ## A Note on Rounds
 
 A note about the cost. When you are hashing your data the module will go through a series of rounds to give you a secure hash. The value you submit there is not just the number of rounds that the module will go through to hash your data. The module will use the value you enter and go through `2^rounds` iterations of processing.
